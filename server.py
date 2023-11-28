@@ -117,7 +117,7 @@ def server_program():
 
                         pass
 
-                    # Terminate the connection.
+                    # Terminate the connection. commenting mroe
                     case '4':
                         break
 
