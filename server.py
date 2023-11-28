@@ -4,6 +4,7 @@ import sys
 import random
 import time
 import json
+import datetime
 
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
@@ -88,6 +89,8 @@ def server_program():
                         destinations = connection_socket.recv(100).decode()
                         email = connection_socket.recv(10000).decode()
 
+
+
                         # Need to add time recieved to email.
 
                         # Convert to list
@@ -117,7 +120,7 @@ def server_program():
 
                         pass
 
-                    # Terminate the connection. commenting mroe
+                    # Terminate the connection.
                     case '4':
                         break
 
@@ -141,5 +144,12 @@ class User:
         self.inbox = []  # List of email strings.
 
 
+# Function to insert date and time received into email string.
+def add_time(email):
+    index = email.find("\n\n")
+    index += 1
+    time = str(datetime.datetime.now())
+    email = email[:index] + "Time and Date Received: " + time + email[index:]
+    return email
 
 server_program()
