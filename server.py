@@ -1,7 +1,5 @@
-import os
 import socket
 import sys
-import random
 import time
 import json
 import datetime
@@ -114,10 +112,11 @@ def server_program():
                         for email in active_user.inbox:
                             connection_socket.send(email.encode())
 
-                    # Read indexed email. Grab email string from inbox to display.
+                    # Get indexed email. Grab email string from inbox to display. (RECV 5c/SEND)
                     case '3':
-
-                        pass
+                        inbox_index = int(connection_socket.recv(5).decode())
+                        email = active_user.inbox[inbox_index-1]
+                        connection_socket.send(email.encode())
 
                     # Terminate the connection.
                     case '4':

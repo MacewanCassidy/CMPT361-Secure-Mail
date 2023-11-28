@@ -1,6 +1,5 @@
 import socket
 import sys
-import os
 import time
 
 from Crypto.Cipher import AES
@@ -70,9 +69,12 @@ def client_program():
                     # Print strings
                     pass
 
-                # Read indexed email. (SEND 5c)
+                # Read indexed email. (SEND 5c/RECV 5c)
                 case '3':
-                    pass
+                    email_index = input("Enter the email index you wish to view: ")
+                    client.send(email_index.encode())
+                    print()
+                    print(client.recv(10000).decode())
 
                 # Terminate the connection.
                 case '4':
