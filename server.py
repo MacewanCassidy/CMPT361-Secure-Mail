@@ -115,15 +115,17 @@ def server_program():
                         connection_socket.send(loop.encode())
 
                         for email in active_user.inbox:
+
                             string_email = json.dumps(email)
-                            connection_socket.send(string_email.encode())
+                            header = str(len(string_email)).encode()
+                            connection_socket.send(header + string_email.encode())
 
                     # Get indexed email. Grab email string from inbox to display. (RECV 5c/SEND)
                     case '3':
                         inbox_index = int(connection_socket.recv(5).decode())
                         email = active_user.inbox[inbox_index-1]
                         connection_socket.send(email.encode())
-                        time.sleep(0.20)
+
 
                     # Terminate the connection.
                     case '4':
@@ -152,9 +154,10 @@ class User:
 
 # Function to insert date and time received into email string.
 def add_time(email):
-    time = str(datetime.datetime.now())
-    email.update({"Time and Date Received": time})
+    current = str(datetime.datetime.now())
+    email.update({"Time and Date Received": current})
     return email
+
 
 def read_string(message):
     read = ""
@@ -164,5 +167,6 @@ def read_string(message):
         else:
             break
     return read
+
 
 server_program()

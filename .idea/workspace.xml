@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="608ecc48-33b5-4e0a-b231-561c52af70ed" name="Changes" comment="Added proper display of inbox contents&#10;emails are now stored as dictionaries, not strings.">
+    <list default="true" id="608ecc48-33b5-4e0a-b231-561c52af70ed" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
@@ -116,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701360050872</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Patched recv overflow">
+      <created>1701368401351</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701368401351</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,6 +142,23 @@
     <MESSAGE value="Added Read indexed email functionality, needs error checking" />
     <MESSAGE value="Refactored how emails are stored, they are stored as a dictionary instead of raw string." />
     <MESSAGE value="Added proper display of inbox contents&#10;emails are now stored as dictionaries, not strings." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added proper display of inbox contents&#10;emails are now stored as dictionaries, not strings." />
+    <MESSAGE value="Patched recv overflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Patched recv overflow" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/client.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/server.py</url>
+          <line>108</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

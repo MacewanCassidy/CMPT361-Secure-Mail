@@ -66,7 +66,10 @@ def client_program():
                     email_num = client.recv(1).decode()
 
                     for num in range(0, int(email_num)):
-                        mail = client.recv(10000).decode()
+
+                        header = client.recv(3).decode()
+                        mail = client.recv(int(header)).decode()
+
                         dict_email = json.loads(mail)
                         print(f"{num+1}\t\t{dict_email.get('From')}\t{dict_email.get('Time and Date Received')}\t {dict_email.get('Title')}")
 
@@ -126,5 +129,17 @@ def create_email(username):
     email = json.dumps(email)
     return destinations, email
 
+
+def get_json(string):
+
+    new_string = ""
+
+    for char in string:
+        if char == '}':
+            break
+        else:
+            new_string += char
+
+    return new_string
 
 client_program()
