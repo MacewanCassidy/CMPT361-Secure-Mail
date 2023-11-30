@@ -69,7 +69,7 @@ def server_program():
             # Email Service Loop
             while running:
                 # Server sends menu (SEND 3)
-                connection_socket.send("Select the Operation:"
+                connection_socket.send("\nSelect the Operation:"
                                        "\n\t1) Create and send an email"
                                        "\n\t2) Display the inbox list"
                                        "\n\t3) Display the email contents"
@@ -86,6 +86,7 @@ def server_program():
                         # (RECV 5a)
                         destinations = connection_socket.recv(100).decode()  # Decrypt these two
                         email = connection_socket.recv(10000).decode()
+                        email = json.loads(email)
 
                         # Adds time to email string.
                         email = add_time(email)
@@ -105,12 +106,17 @@ def server_program():
                                     user.inbox.append(email)
 
                     # Display inbox contents.
-                    # Needs to be updated to display email header/stud, currently displays entire email string.
                     case '2':
+
+                        # Top of menu.
+                        connection_socket.send("Index\tFrom\tDate and Time\tTitle".encode())
+
                         loop = str(len(active_user.inbox))
                         connection_socket.send(loop.encode())
+
                         for email in active_user.inbox:
-                            connection_socket.send(email.encode())
+                            string_email = json.dumps(email)
+                            connection_socket.send(string_email.encode())
 
                     # Get indexed email. Grab email string from inbox to display. (RECV 5c/SEND)
                     case '3':
@@ -145,10 +151,17 @@ class User:
 
 # Function to insert date and time received into email string.
 def add_time(email):
-    index = email.find("\n\n")
-    index += 1
     time = str(datetime.datetime.now())
-    email = email[:index] + "Time and Date Received: " + time + email[index:]
+    email.update({"Time and Date Received": time})
     return email
+
+def read_string(message):
+    read = ""
+    for letter in message:
+        if letter is not "\n":
+            read += letter
+        else:
+            break
+    return read
 
 server_program()

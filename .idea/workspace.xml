@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="608ecc48-33b5-4e0a-b231-561c52af70ed" name="Changes" comment="Added documentation for increased clarity">
+    <list default="true" id="608ecc48-33b5-4e0a-b231-561c52af70ed" name="Changes" comment="Refactored how emails are stored, they are stored as a dictionary instead of raw string.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
@@ -95,7 +95,21 @@
       <option name="project" value="LOCAL" />
       <updated>1701189145847</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Read indexed email functionality, needs error checking">
+      <created>1701192443000</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701192443000</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Refactored how emails are stored, they are stored as a dictionary instead of raw string.">
+      <created>1701357140376</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701357140376</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,6 +125,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added documentation for increased clarity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added documentation for increased clarity" />
+    <MESSAGE value="Added Read indexed email functionality, needs error checking" />
+    <MESSAGE value="Refactored how emails are stored, they are stored as a dictionary instead of raw string." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored how emails are stored, they are stored as a dictionary instead of raw string." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/server.py</url>
+          <line>108</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

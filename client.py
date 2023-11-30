@@ -1,6 +1,7 @@
 import socket
 import sys
 import time
+import json
 
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
@@ -58,19 +59,16 @@ def client_program():
 
                 # Display inbox contents. (SEND 5b)
                 case '2':
-
                     # Receiving and printing the header.
-                    print(client.recv(100).decode())
+                    print(client.recv(30).decode())
+
                     # Getting number of emails
-                    email_num = client.recv(5).decode()
+                    email_num = client.recv(1).decode()
 
-                    for email in range(0, int(email_num)):
-                        message = client.recv(10000).decode()
-                        print(message)
-
-                    # Receive inbox strings (maybe with a loop?)
-                    # Print strings
-                    pass
+                    for num in range(0, int(email_num)):
+                        email = client.recv(10000).decode()
+                        dict_email = json.loads(email)
+                        print(f"{num+1}\t\t{dict_email.get('From')}\t{dict_email.get('Time and Date Received')}\t {dict_email.get('Title')}")
 
                 # Read indexed email. (SEND 5c/RECV 5c)
                 case '3':
@@ -125,7 +123,7 @@ def create_email(username):
 
     # Creation of email dictionary.
     email = {"From": username, "To": destinations, "Title": title, "Content Length": len(message), "Contents": message}
-
+    email = json.dumps(email)
     return destinations, email
 
 
