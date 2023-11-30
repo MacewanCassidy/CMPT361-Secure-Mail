@@ -124,6 +124,7 @@ def server_program():
                     case '3':
                         inbox_index = int(connection_socket.recv(5).decode())
                         email = active_user.inbox[inbox_index-1]
+                        email = dictionary_to_string(email)
                         connection_socket.send(email.encode())
 
 
@@ -167,6 +168,18 @@ def read_string(message):
         else:
             break
     return read
+
+
+def dictionary_to_string(dictionary) -> str:
+    string = ""
+    string += f"From: {dictionary.get('From')}\n"
+    string += f"To: {dictionary.get('To')}\n"
+    string += f"Time and Date Received: {dictionary.get('Time and Date Received')}\n"
+    string += f"Title: {dictionary.get('Title')}\n"
+    string += f"Content Length: {dictionary.get('Content Length')}\n"
+    string += f"Contents:\n"
+    string += f"{dictionary.get('Contents')}"
+    return string
 
 
 server_program()

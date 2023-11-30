@@ -130,16 +130,4 @@ def create_email(username):
     return destinations, email
 
 
-def get_json(string):
-
-    new_string = ""
-
-    for char in string:
-        if char == '}':
-            break
-        else:
-            new_string += char
-
-    return new_string
-
 client_program()
