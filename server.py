@@ -123,6 +123,7 @@ def server_program():
                         inbox_index = int(connection_socket.recv(5).decode())
                         email = active_user.inbox[inbox_index-1]
                         connection_socket.send(email.encode())
+                        time.sleep(0.20)
 
                     # Terminate the connection.
                     case '4':

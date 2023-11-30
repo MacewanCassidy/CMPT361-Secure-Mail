@@ -66,8 +66,8 @@ def client_program():
                     email_num = client.recv(1).decode()
 
                     for num in range(0, int(email_num)):
-                        email = client.recv(10000).decode()
-                        dict_email = json.loads(email)
+                        mail = client.recv(10000).decode()
+                        dict_email = json.loads(mail)
                         print(f"{num+1}\t\t{dict_email.get('From')}\t{dict_email.get('Time and Date Received')}\t {dict_email.get('Title')}")
 
                 # Read indexed email. (SEND 5c/RECV 5c)
