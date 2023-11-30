@@ -54,10 +54,13 @@ def client_program():
                     client.send(destinations.encode())
                     time.sleep(0.25)
                     client.send(email.encode())
+                    print("Message has been sent to the server.")
 
                 # Display inbox contents. (SEND 5b)
                 case '2':
 
+                    # Receiving and printing the header.
+                    print(client.recv(100).decode())
                     # Getting number of emails
                     email_num = client.recv(5).decode()
 
@@ -90,15 +93,10 @@ def client_program():
 
 
 def create_email(username):
-    # Creation of email string. This is the data viewable by the clients it is sent to.
-    email = ""
-    email += f"From: {username}\n"
 
+    # Gather email information.
     destinations = input(" Enter destinations (separated by ;): ")
-    email += f"To: {destinations}\n"
-
     title = input("Enter title: ")
-    email += f"\nTitle: {title}\n"
 
     load = input("Would you like to load contents from a file? (Y/N): ")
 
@@ -125,10 +123,8 @@ def create_email(username):
     else:
         message = input("Enter message contents: ")
 
-    email += f"Content Length: {len(message)}\n"
-    email += f"Contents:\n{message}\n"
-
-    print("Message has been sent to the server.")
+    # Creation of email dictionary.
+    email = {"From": username, "To": destinations, "Title": title, "Content Length": len(message), "Contents": message}
 
     return destinations, email
 
