@@ -9,7 +9,6 @@ from Crypto.Util.Padding import pad, unpad
 
 
 def server_program():
-    # Server port
     server_port = 13000
 
     # Create server socket that uses IPv4 and TCP protocols
@@ -19,7 +18,7 @@ def server_program():
         print('Error in server socket creation:', e)
         sys.exit(1)
 
-    # Associate 12000 port number to the server socket
+    # Associate 13000 port number to the server socket
     try:
         server.bind(('', server_port))
     except socket.error as e:
@@ -27,7 +26,7 @@ def server_program():
         sys.exit(1)
 
     # Loading data from credentials file, these are our authorized users.
-    file = open("credentials.json", 'r')
+    file = open("user_pass.json", 'r')
     x = file.read()
     creds = json.loads(x)
     file.close()
@@ -126,7 +125,6 @@ def server_program():
                         email = active_user.inbox[inbox_index-1]
                         email = dictionary_to_string(email)
                         connection_socket.send(email.encode())
-
 
                     # Terminate the connection.
                     case '4':

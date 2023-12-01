@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="608ecc48-33b5-4e0a-b231-561c52af70ed" name="Changes" comment="Actually fixed the case 2 overflow, added header to prevent overflow, may fail if message is over 4 digits of bytes, show pass project use cases">
+    <list default="true" id="608ecc48-33b5-4e0a-b231-561c52af70ed" name="Changes" comment="Basic Features implemented and working, still need to add encryption, os.fork, and server messages.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/user_pass.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +29,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="TEXT" />
   </component>
-  <component name="RunManager" selected="Python.client">
+  <component name="RunManager" selected="Python.server">
     <configuration name="client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SecureMail" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,8 +74,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.client" />
         <item itemvalue="Python.server" />
+        <item itemvalue="Python.client" />
       </list>
     </recent_temporary>
   </component>
@@ -130,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701374424707</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Basic Features implemented and working, still need to add encryption, os.fork, and server messages.">
+      <created>1701386168709</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701386168709</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,6 +158,7 @@
     <MESSAGE value="Added proper display of inbox contents&#10;emails are now stored as dictionaries, not strings." />
     <MESSAGE value="Patched recv overflow" />
     <MESSAGE value="Actually fixed the case 2 overflow, added header to prevent overflow, may fail if message is over 4 digits of bytes, show pass project use cases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actually fixed the case 2 overflow, added header to prevent overflow, may fail if message is over 4 digits of bytes, show pass project use cases" />
+    <MESSAGE value="Basic Features implemented and working, still need to add encryption, os.fork, and server messages." />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Features implemented and working, still need to add encryption, os.fork, and server messages." />
   </component>
 </project>
