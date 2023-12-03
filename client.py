@@ -66,17 +66,22 @@ def client_program():
                     email_num = client.recv(1).decode()
 
                     for num in range(0, int(email_num)):
-
-                        header = client.recv(3).decode()
-                        mail = client.recv(int(header)).decode()
+                            
+                        
+                        mail = client.recv(10000).decode()
 
                         dict_email = json.loads(mail)
                         print(f"{num+1}\t\t{dict_email.get('From')}\t{dict_email.get('Time and Date Received')}\t {dict_email.get('Title')}")
 
+                        time.sleep(0.2)
+
                 # Read indexed email. (SEND 5c/RECV 5c)
                 case '3':
+                    # Client sends email index
                     email_index = input("Enter the email index you wish to view: ")
                     client.send(email_index.encode())
+                    
+                    # Print recieved string.
                     print()
                     print(client.recv(10000).decode())
 
