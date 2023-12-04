@@ -84,9 +84,11 @@ def server_program():
                 else:
                     connection_socket.send('0'.encode())
                     running = False
-
+                
+                print(f"Accepted connection from {username}.")
                 # Email Service Loop
                 while running:
+                    
                     # Server sends menu (SEND 3)
                     connection_socket.send("\nSelect the Operation:"
                                         "\n\t1) Create and send an email"
@@ -128,6 +130,7 @@ def server_program():
                             file = open("inboxes.json", 'w')
                             file.write(str_inbox)
                             file.close()
+                            print(f"Got email from {username}, sent to {destinations}.")
 
                         # Display inbox contents.       
                         case '2':
@@ -166,6 +169,7 @@ def server_program():
 
                         # Terminate the connection.
                         case '4':
+                            print(f"\nTerminating connection with {username}.\n")
                             break
 
                 # Ending message.

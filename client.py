@@ -9,7 +9,7 @@ from Crypto.Util.Padding import pad, unpad
 
 def client_program():
     # Server Information
-    server_name = '127.0.0.1'  # 'localhost'
+    server_name = input("Enter the server IP or name: ") # 127.0.0.1 for localhost
     server_port = 13000
 
     # Create client socket that using IPv4 and TCP protocols
